@@ -1,0 +1,69 @@
+/* Only explicitly adopted buttons; no Tribe/Woo selectors or behavior overrides. */
+.bckfc-design .bckfc-button {
+  --bckfc-button-fill: var(--bckfc-orange);
+  --bckfc-button-hover: var(--bckfc-orange-hover);
+  --bckfc-button-ink: var(--bckfc-white);
+  --bckfc-button-border: var(--bckfc-button-fill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bckfc-space-3);
+  box-sizing: border-box;
+  min-height: var(--bckfc-control-height);
+  max-width: 100%;
+  padding: var(--bckfc-space-3) var(--bckfc-space-6);
+  border: 2px solid var(--bckfc-button-border);
+  border-radius: var(--bckfc-radius);
+  background: var(--bckfc-button-fill);
+  color: var(--bckfc-button-ink);
+  font-family: var(--bckfc-font-heading);
+  font-size: var(--bckfc-text-small);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition: background-color var(--bckfc-motion-duration) ease;
+}
+
+.bckfc-design .bckfc-button--outline {
+  --bckfc-button-fill: transparent;
+  --bckfc-button-hover: var(--bckfc-gray);
+  --bckfc-button-ink: var(--bckfc-ink);
+  --bckfc-button-border: var(--bckfc-ink);
+}
+
+.bckfc-design .bckfc-button--inverse {
+  --bckfc-button-hover: var(--bckfc-hover-inverse);
+  --bckfc-button-ink: var(--bckfc-white);
+  --bckfc-button-border: var(--bckfc-white);
+}
+
+.bckfc-design .bckfc-button:hover:not(:disabled) {
+  background: var(--bckfc-button-hover);
+  color: var(--bckfc-button-ink);
+  text-decoration: none;
+}
+
+.bckfc-design .bckfc-button:focus-visible {
+  outline: 2px solid var(--bckfc-white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--bckfc-ink);
+}
+
+.bckfc-design .bckfc-button:disabled {
+  background: var(--bckfc-disabled);
+  border-color: var(--bckfc-disabled);
+  color: var(--bckfc-muted);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bckfc-design .bckfc-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,67 @@
+BCKFC design system v2 — starting contract
+
+STATUS
+
+Initial foundation, not an installed redesign. No WordPress settings or content have changed. The child theme has not been activated. The standalone preview verifies the shared CSS in isolation; native Avada element integration must be verified when building the first header. Add adapters only for observed native markup conflicts. Do not claim standalone styling proves Avada compatibility.
+
+SOURCE AUDIT
+
+Reviewed bckfc_tools main commit 38bc7a4443346648249182bafb55bb9744b04ec5: design-tokens.css, typography.css, buttons.css, event-layout.css and event-registration.css. The layout stylesheet mixed reusable design with hero layout, full-width painting, headings, timeline, categories, tickets and modal behavior. This is a design extraction, not a stylesheet port.
+
+Keep: bright orange #f47b20; accent blue #2479ac; ink #163445; tan #f8f5ed; section gray #e8e8e8; white; Oswald headings; Source Sans 3 body; flat sections; thin dividers; restrained corners; mobile-first content; balanced titles; clear button states.
+
+Improve: one source for color/font tokens; explicit typography roles instead of conflicting h2 defaults and section overrides; a 4px spacing scale instead of repeated 10/14/18/22/28px spacing choices; one 4px radius instead of 4/5/6px corners; consistent 48px button height; light-background and dark-background outline variants; explicit opt-in classes instead of dependencies on a custom template wrapper.
+
+The old source used 14 distinct hexadecimal colors plus white and alpha treatments. Keep colors with a distinct job. The inset gray #e5e5e5 is intentionally different from the section gray for footer/inset areas; not a second arbitrary section gray. Use border gray #b8c2c8 for clearer separation on light gray surfaces; retain disabled gray #e6ebee for disabled controls. Remove incidental near-ink #243746, pale text #edf1f4 and one-off fill colors until a component actually needs them.
+
+Do not port: #tribe-events-content/#main specificity chains, global main padding changes, :has wrapper detection, 100vw border-image painting, negative offsets, modal heights/scrolling, hidden native controls, form flex reordering or the login blur overlay. They solved old implementation problems, not design-system requirements. Use native Avada full-width containers for full-width backgrounds; constrain their inner content using Avada's site width.
+
+PALETTE
+
+Orange: brand accents, primary action background, small decorative icons. Blue: interactive links and optional informational accents, not a whole section background. Ink: primary text and approved dark sections. White, tan, khaki, gray and ink are the section surfaces. Khaki #7d6a59 comes from the production homepage Testimonials section (computed background rgb(125, 106, 89), verified November 19, 2026). Use white text on khaki; keep the lighter tan as a separate surface.
+
+Primary buttons use brand orange #f47b20 with white text and #dc6f1d on hover. Use ink body text and blue ordinary links on light surfaces.
+
+TYPE ROLES
+
+Title: Oswald 700, 36–72px fluid, line-height 1.08, uppercase, balanced wrapping.
+Section heading: Oswald 700, 24–32px fluid, line-height 1.2, uppercase.
+Item heading: Oswald 400, 20px, line-height 1.3, uppercase. Category and accordion titles should share this role when implemented.
+Body: Source Sans 3 400, 16px, line-height 1.5.
+Lead: Source Sans 3, 18px, line-height 1.65 (normalizes the former 17.6px intro).
+Supporting text: 14px. Small labels: 12px, weight 600, uppercase, 0.06em tracking.
+Button: Oswald 700, 14px, line-height 1.5, uppercase, 0.1em tracking.
+Semantic heading level is independent of visual role. No global rule that makes every h2 look like a section title. A title class can go on Avada's Title wrapper; the known inner .fusion-title-heading receives the same role without doubled margins. Keep element typography overrides empty so CSS can own the result.
+
+SPACING AND LAYOUT
+
+Base spacing steps: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80px. Use the corresponding space tokens. Border widths, icon sizes and optical offsets are not spacing-scale violations. A new exception must have a visual reason; do not add a token for every one-off number.
+
+Starting layout convention: 8px outer mobile gutter (user preference); one owner for the gutter, no nested container/column padding accumulation. Section interior padding 24px mobile / 32px desktop. Heading-to-content gap 16px. Closely related items use 8–12px gaps; independent groups 24–32px. Adjacent full-width sections have no outer gap. Avada owns site width and responsive column settings. Validate the narrow gutter against the actual header before treating it as final.
+
+Use 768px as the initial content layout transition when CSS needs one, matching v1. Do not assume Avada's configured responsive breakpoint matches it: reconcile during actual layout construction. Fluid typography does not require a second stack of breakpoint overrides. Avoid fixed content heights, forced date line breaks, arbitrary negative margins and global overflow clipping.
+
+CONTROLS, ICONS AND ALERTS
+
+Buttons: minimum 48px height, 12px/24px padding, 12px icon gap, 4px radius. Primary, outline on light, outline inverse on dark. Keep keyboard focus visible and honor reduced-motion preference. Use a real disabled button for a disabled action; CSS is not interaction enforcement. Coming Soon is a message in the header, not a disabled link or event purchase switch.
+
+Icons: consistent outlined family, 20px beside text, 24px for compact highlights, 48px only when a location illustration needs emphasis. Use the same icon source/family per component; do not mix glyphs, emoji and drawn variants. No icon library or asset bundle has been copied yet.
+
+Alerts: carry forward the optional icon + message concept. Keep message text readable, color/icon supplementary, and use a semantic role only when its behavior warrants it. Build this from Avada's native alert element first; no custom alert markup or overrides yet.
+
+ADOPTION AND FILE OWNERSHIP
+
+style.css identifies the Avada child theme. functions.php only loads fonts and the three CSS files in order. Parent Avada continues loading its own assets. No template override, post metadata, shortcode registration or checkout hooks belong here.
+
+assets/css/tokens.css: shared values; :root definitions alone change no appearance.
+assets/css/foundations.css: opt-in text roles, surfaces, links, dividers and icon sizing.
+assets/css/buttons.css: explicitly adopted button appearance and interaction states.
+preview/index.html + preview/preview.css: developer reference, not a WordPress page or deploy requirement.
+
+Add bckfc-design to a Container to opt in. Surface classes are bckfc-surface--white/tan/khaki/gray/ink on that same container. Text roles live on elements within it. Use bckfc-button on the actual anchor/button; bckfc-button--outline adds the light outline, and --inverse is combined with --outline for dark surfaces. These are intentionally not auto-applied to Tribe, WooCommerce or every Avada button. Native Avada integration will be checked with real elements before adding selector exceptions.
+
+Shared layouts contain structure, not event-specific images/text/URLs. BCKFC Tools remains responsible for event facts and behavior; the child theme handles appearance. Keep production transport simple: theme files plus separately exported/imported Avada content. Never copy parent theme templates just to recover the old header.
+
+NEXT VALIDATION
+
+Review preview at desktop and narrow mobile widths, keyboard focus, wrapping and buttons. Then install the minimal child theme on Local through the agreed workflow and build one native Avada header. Confirm fonts, cascade, title wrappers, native button inner text, gutters, edge-to-edge background and desktop/mobile behavior in that environment. Neither installation nor activation has been performed in this iteration.

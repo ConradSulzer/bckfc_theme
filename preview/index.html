@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BCKFC — Design Foundation v2</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/foundations.css" />
+    <link rel="stylesheet" href="../assets/css/buttons.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body>
+    <main>
+      <section class="bckfc-design bckfc-surface--ink preview-section">
+        <p class="bckfc-label bckfc-accent">BCKFC · Design Foundation v2</p>
+        <h1 class="bckfc-title">
+          A Day on <span class="bckfc-accent">The Water</span>
+        </h1>
+        <p class="bckfc-lead preview-note">
+          Our familiar type, color, and character—with deliberate rules for the
+          next generation of event pages.
+        </p>
+        <div class="preview-row">
+          <a class="bckfc-button" href="#type">Explore the Foundation</a>
+          <a
+            class="bckfc-button bckfc-button--outline bckfc-button--inverse"
+            href="#palette"
+            >View the Palette</a
+          >
+        </div>
+        <p class="preview-note">
+          Standalone reference. This is not the event header, and it does not
+          verify Avada's CSS cascade.
+        </p>
+      </section>
+      <section
+        class="bckfc-design bckfc-surface--white preview-section"
+        id="type"
+      >
+        <h2 class="bckfc-section-heading">Type With a Purpose</h2>
+        <div class="preview-stack">
+          <h3 class="bckfc-item-heading">An Item Heading · 20px Regular</h3>
+          <p class="bckfc-lead">
+            Lead text gives the important details a little more room.
+          </p>
+          <p class="preview-note">
+            Body text stays comfortable and direct. Launch locations, tournament
+            rules, and event details should be easy to read on a phone.
+            <a class="bckfc-link" href="#controls">See the button states.</a>
+          </p>
+          <span class="bckfc-label"
+            >Supporting Label · Registration Closes</span
+          >
+        </div>
+        <hr class="bckfc-divider" />
+        <div class="fusion-title bckfc-section-heading">
+          <h2 class="fusion-title-heading">Avada Title Wrapper Sample</h2>
+        </div>
+      </section>
+      <section
+        class="bckfc-design bckfc-surface--gray preview-section"
+        id="palette"
+      >
+        <h2 class="bckfc-section-heading">A Familiar Palette</h2>
+        <div class="preview-swatches">
+          <div class="preview-swatch">
+            <div
+              class="preview-chip"
+              style="--swatch: var(--bckfc-orange)"
+            ></div>
+            <strong>Brand Orange</strong><br />#f47b20
+          </div>
+          <div class="preview-swatch">
+            <div class="preview-chip" style="--swatch: var(--bckfc-blue)"></div>
+            <strong>Accent Blue</strong><br />#2479ac
+          </div>
+          <div class="preview-swatch">
+            <div class="preview-chip" style="--swatch: var(--bckfc-ink)"></div>
+            <strong>Ink</strong><br />#163445
+          </div>
+          <div class="preview-swatch">
+            <div class="preview-chip" style="--swatch: var(--bckfc-khaki)"></div>
+            <strong>Khaki</strong><br />#7d6a59
+          </div>
+          <div class="preview-swatch">
+            <div class="preview-chip" style="--swatch: var(--bckfc-tan)"></div>
+            <strong>Tan</strong><br />#f8f5ed
+          </div>
+          <div class="preview-swatch">
+            <div class="preview-chip" style="--swatch: var(--bckfc-gray)"></div>
+            <strong>Gray</strong><br />#e8e8e8
+          </div>
+          <div class="preview-swatch">
+            <div
+              class="preview-chip"
+              style="--swatch: var(--bckfc-white)"
+            ></div>
+            <strong>White</strong><br />#ffffff
+          </div>
+        </div>
+        <p class="preview-note">
+          Blue is an interactive accent. White, tan, khaki, gray, and ink are section
+          surfaces.
+        </p>
+      </section>
+      <section
+        class="bckfc-design bckfc-surface--tan preview-section"
+        id="controls"
+      >
+        <h2 class="bckfc-section-heading">Consistent Actions</h2>
+        <div class="preview-row">
+          <button class="bckfc-button" type="button">Primary Button</button>
+          <button class="bckfc-button bckfc-button--outline" type="button">
+            Secondary Button
+          </button>
+          <button class="bckfc-button" type="button" disabled>
+            Disabled Button
+          </button>
+        </div>
+        <p class="preview-note">
+          Try keyboard Tab and hover. These are inert design samples.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

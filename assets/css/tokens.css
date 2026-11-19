@@ -1,0 +1,44 @@
+/* Values shared by the design system. Definitions alone do not restyle pages. */
+:root {
+  --bckfc-orange: #f47b20;
+  --bckfc-orange-hover: #dc6f1d;
+  --bckfc-blue: #2479ac;
+  --bckfc-ink: #163445;
+  --bckfc-white: #fff;
+  --bckfc-khaki: #7d6a59;
+  --bckfc-tan: #f8f5ed;
+  --bckfc-gray: #e8e8e8;
+  --bckfc-gray-inset: #e5e5e5;
+  --bckfc-border: #b8c2c8;
+  --bckfc-muted: #64737d;
+  --bckfc-disabled: #e6ebee;
+  --bckfc-border-inverse: rgb(255 255 255 / 25%);
+  --bckfc-hover-inverse: rgb(255 255 255 / 12%);
+
+  --bckfc-font-heading: "Oswald", "Arial Narrow", sans-serif;
+  --bckfc-font-body: "Source Sans 3", Arial, sans-serif;
+  --bckfc-text-title: clamp(2.25rem, 5vw, 4.5rem);
+  --bckfc-text-section: clamp(1.5rem, 3vw, 2rem);
+  --bckfc-text-item: 1.25rem;
+  --bckfc-text-lead: 1.125rem;
+  --bckfc-text-body: 1rem;
+  --bckfc-text-small: 0.875rem;
+  --bckfc-text-label: 0.75rem;
+
+  --bckfc-space-1: 0.25rem;
+  --bckfc-space-2: 0.5rem;
+  --bckfc-space-3: 0.75rem;
+  --bckfc-space-4: 1rem;
+  --bckfc-space-5: 1.25rem;
+  --bckfc-space-6: 1.5rem;
+  --bckfc-space-8: 2rem;
+  --bckfc-space-10: 2.5rem;
+  --bckfc-space-12: 3rem;
+  --bckfc-space-16: 4rem;
+  --bckfc-space-20: 5rem;
+
+  --bckfc-radius: 0.25rem;
+  --bckfc-control-height: 3rem;
+  --bckfc-icon-size: 1.25rem;
+  --bckfc-motion-duration: 150ms;
+}
