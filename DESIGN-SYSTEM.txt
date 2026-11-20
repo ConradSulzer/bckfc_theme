@@ -2,7 +2,7 @@ BCKFC design system v2 — starting contract
 
 STATUS
 
-Initial foundation, not an installed redesign. No WordPress settings or content have changed. The child theme has not been activated. The standalone preview verifies the shared CSS in isolation; native Avada element integration must be verified when building the first header. Add adapters only for observed native markup conflicts. Do not claim standalone styling proves Avada compatibility.
+Foundation and BCKFC Header element are installed on Local. The header has been checked inside the test event’s native Avada layout on desktop and at 320px and 390px. PROD has not been modified. Add adapters only for observed native markup conflicts.
 
 SOURCE AUDIT
 
@@ -45,13 +45,13 @@ CONTROLS, ICONS AND ALERTS
 
 Buttons: minimum 48px height, 12px/24px padding, 12px icon gap, 4px radius. Primary, outline on light, outline inverse on dark. Keep keyboard focus visible and honor reduced-motion preference. Use a real disabled button for a disabled action; CSS is not interaction enforcement. Coming Soon is a message in the header, not a disabled link or event purchase switch.
 
-Icons: consistent outlined family, 20px beside text, 24px for compact highlights, 48px only when a location illustration needs emphasis. Use the same icon source/family per component; do not mix glyphs, emoji and drawn variants. No icon library or asset bundle has been copied yet.
+Icons: consistent outlined family, 20px beside text, 24px for compact highlights, 48px only when a location illustration needs emphasis. Use the same icon source/family per component; do not mix glyphs, emoji and drawn variants. The header uses shared Lucide SVG assets in assets/icons, with their license included.
 
-Alerts: carry forward the optional icon + message concept. Keep message text readable, color/icon supplementary, and use a semantic role only when its behavior warrants it. Build this from Avada's native alert element first; no custom alert markup or overrides yet.
+Alerts: carry forward the optional icon + message concept. Keep message text readable, color/icon supplementary, and use a semantic role only when its behavior warrants it. The header includes its optional alert in the same element settings form.
 
 ADOPTION AND FILE OWNERSHIP
 
-style.css identifies the Avada child theme. functions.php only loads fonts and the three CSS files in order. Parent Avada continues loading its own assets. No template override, post metadata, shortcode registration or checkout hooks belong here.
+style.css identifies the Avada child theme. functions.php loads shared fonts/styles and registers the BCKFC Header Avada element. Parent Avada continues loading its own assets. The element uses a PHP markup partial, not a WordPress event template override. Event metadata and checkout behavior remain in Tools.
 
 assets/css/tokens.css: shared values; :root definitions alone change no appearance.
 assets/css/foundations.css: opt-in text roles, surfaces, links, dividers and icon sizing.
@@ -62,6 +62,21 @@ Add bckfc-design to a Container to opt in. Surface classes are bckfc-surface--wh
 
 Shared layouts contain structure, not event-specific images/text/URLs. BCKFC Tools remains responsible for event facts and behavior; the child theme handles appearance. Keep production transport simple: theme files plus separately exported/imported Avada content. Never copy parent theme templates just to recover the old header.
 
-NEXT VALIDATION
+HEADER ELEMENT AND DEPLOYMENT
 
-Review preview at desktop and narrow mobile widths, keyboard focus, wrapping and buttons. Then install the minimal child theme on Local through the agreed workflow and build one native Avada header. Confirm fonts, cascade, title wrappers, native button inner text, gutters, edge-to-edge background and desktop/mobile behavior in that environment. Neither installation nor activation has been performed in this iteration.
+Add BCKFC Header through Avada Builder. Its single settings form owns title override, eyebrow, introduction, alert, decorative featured image, separate background image, Coming Soon and two button labels/links. Empty optional values omit their output. Title defaults to the current event title. Date and fishing location use Tools shortcodes when available; absent facts omit their icons too. No event content or media URLs are hardcoded into theme files.
+
+Use a full-width container with zero padding/column spacing. Header CSS constrains its inner content to Avada site width. The shared Avada layout assigns an empty Page Title Bar section to replace the native title bar. Its Content layout section uses 100% width and zero outer padding, and contains event content followed by the native tickets shortcode. Event-level page options can remain at their defaults; the Local layout-only test verified this. These layout sections are exported separately from theme files.
+
+includes/EventHeader.php registers the element and prepares values; templates/event-header.php renders only this element; assets/css/event-header.css owns its layout. Shared typography, palette and buttons remain in their existing stylesheets. The header uses flex gap for vertical rhythm so Avada paragraph margins do not distort spacing.
+
+Deploy the child-theme files, then import the desired Avada layout/saved container through its UI and configure layout conditions there. Each event supplies its own header content. Production changes are performed by the user.
+
+
+Native ticket section
+
+Use [bckfc_event_tickets] in an Avada Text Block (it renders the native [tribe_tickets] picker), inside a normal full-width container with its Menu Anchor set to bckfc-tickets. Keep interior content constrained to the site width. The existing BCKFC Event Content layout already has this structure. event-tickets.css opts in only this section: tan container, white rows, full-width dividers, responsive title/description and price/quantity placement, and attendee-modal presentation. buttons.css shares the component button treatment with the native Get Tickets/login/Checkout controls in this section.
+
+Avada owns placement and width; Tribe owns ticket rendering, quantities, validation and purchase flow. There is no custom ticket PHP template or JavaScript. The scoped row z-index reset removes Avada's stacking context, which otherwise traps the fixed modal and allows the footer to obscure it. Mobile modal height and overflow keep fields and Checkout reachable. Checkbox descriptions appear below their labels. The redundant modal Save and View Cart action and divider are hidden, preserving the previously approved single Checkout action.
+
+Deploy the theme files and export/import the native Avada layout separately. No event IDs or image URLs are embedded in these ticket styles. EventTickets renders a compact purchased-ticket notice beside the native Tickets heading on desktop, stacked beneath it on mobile. Tribe supplies the count and account URL. Below the heading, events requiring login show the individual-purchase reminder for logged-in anglers; events not requiring login show the saved registration deadline, if present. Its hooks are attached only during this shortcode render and removed afterward; normal Tribe output elsewhere is unchanged. For events with Require Login enabled, logged-in visitors see the individual-purchase instruction beneath the heading row: dark text, 3px orange left border, 4px/8px padding and 12px bottom margin. Logged-out visitors see the ticket content blurred (2px, opacity 0.7) and inert, with a centered login button using wp_login_url with an event return URL. The purchased-ticket notice uses a compact content-width pale-blue notice with a blue border, blue text and an inline View Tickets link. Tools still owns server-side enforcement.

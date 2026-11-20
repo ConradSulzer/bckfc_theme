@@ -1,5 +1,10 @@
-/* Only explicitly adopted buttons; no Tribe/Woo selectors or behavior overrides. */
-.bckfc-design .bckfc-button {
+/* Shared button treatment for our components and the adopted ticket section.
+   Tribe selectors cover Get Tickets, its native login link, and modal Checkout.
+   Quantity controls and other native actions keep their own control styles. */
+.bckfc-design .bckfc-button,
+#main #bckfc-tickets .tribe-tickets__tickets-buy,
+#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn,
+#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button {
   --bckfc-button-fill: var(--bckfc-orange);
   --bckfc-button-hover: var(--bckfc-orange-hover);
   --bckfc-button-ink: var(--bckfc-white);
@@ -30,6 +35,11 @@
   transition: background-color var(--bckfc-motion-duration) ease;
 }
 
+.bckfc-design .bckfc-button--blue {
+  --bckfc-button-fill: var(--bckfc-blue);
+  --bckfc-button-hover: color-mix(in srgb, var(--bckfc-blue), black 10%);
+}
+
 .bckfc-design .bckfc-button--outline {
   --bckfc-button-fill: transparent;
   --bckfc-button-hover: var(--bckfc-gray);
@@ -38,24 +48,34 @@
 }
 
 .bckfc-design .bckfc-button--inverse {
+  --bckfc-button-focus: var(--bckfc-white);
   --bckfc-button-hover: var(--bckfc-hover-inverse);
   --bckfc-button-ink: var(--bckfc-white);
   --bckfc-button-border: var(--bckfc-white);
 }
 
-.bckfc-design .bckfc-button:hover:not(:disabled) {
+.bckfc-design .bckfc-button:hover:not(:disabled),
+#main #bckfc-tickets .tribe-tickets__tickets-buy:hover:not(:disabled),
+#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn:hover:not(:disabled),
+#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button:hover:not(:disabled) {
   background: var(--bckfc-button-hover);
   color: var(--bckfc-button-ink);
   text-decoration: none;
 }
 
-.bckfc-design .bckfc-button:focus-visible {
-  outline: 2px solid var(--bckfc-white);
+.bckfc-design .bckfc-button:focus-visible,
+#main #bckfc-tickets .tribe-tickets__tickets-buy:focus-visible,
+#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn:focus-visible,
+#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button:focus-visible {
+  outline: 2px solid var(--bckfc-button-focus, var(--bckfc-ink));
   outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--bckfc-ink);
+  box-shadow: none;
 }
 
-.bckfc-design .bckfc-button:disabled {
+.bckfc-design .bckfc-button:disabled,
+#main #bckfc-tickets .tribe-tickets__tickets-buy:disabled,
+#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn:disabled,
+#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button:disabled {
   background: var(--bckfc-disabled);
   border-color: var(--bckfc-disabled);
   color: var(--bckfc-muted);
@@ -63,7 +83,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bckfc-design .bckfc-button {
+  .bckfc-design .bckfc-button,
+#main #bckfc-tickets .tribe-tickets__tickets-buy,
+#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn,
+#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button {
     transition: none;
   }
 }
