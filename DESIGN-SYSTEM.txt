@@ -25,7 +25,7 @@ Primary buttons use brand orange #f47b20 with white text and #dc6f1d on hover. U
 TYPE ROLES
 
 Title: Oswald 700, 36–72px fluid, line-height 1.08, uppercase, balanced wrapping.
-Section heading: Oswald 700, 24–32px fluid, line-height 1.2, uppercase.
+Section heading: Oswald 700, 28–32px fluid, line-height 1.2, uppercase.
 Item heading: Oswald 400, 20px, line-height 1.3, uppercase. Category and accordion titles should share this role when implemented.
 Body: Source Sans 3 400, 16px, line-height 1.5.
 Lead: Source Sans 3, 18px, line-height 1.65 (normalizes the former 17.6px intro).

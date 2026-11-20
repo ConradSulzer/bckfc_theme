@@ -21,7 +21,7 @@
   /* Typography roles own responsive sizing. Components retain their role at every width.
      Large headings scale fluidly; smaller text stays steady for readability. */
   --bckfc-text-title: clamp(2.25rem, 5vw, 4.5rem);
-  --bckfc-text-section: clamp(1.5rem, 3vw, 2rem);
+  --bckfc-text-section: clamp(1.75rem, 3vw, 2rem);
   --bckfc-text-item: 1.25rem;
   --bckfc-text-lead: 1.125rem;
   --bckfc-text-body: 1rem;
