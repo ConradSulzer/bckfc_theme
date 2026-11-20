@@ -84,9 +84,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .bckfc-design .bckfc-button,
-#main #bckfc-tickets .tribe-tickets__tickets-buy,
-#main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn,
-#main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button {
+  #main #bckfc-tickets .tribe-tickets__tickets-buy,
+  #main #bckfc-tickets .tribe-tickets__tickets-footer > a.tribe-common-c-btn,
+  #main #bckfc-tickets .tribe-tickets__attendee-tickets-footer-checkout-button {
     transition: none;
   }
 }

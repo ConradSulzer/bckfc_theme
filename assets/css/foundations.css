@@ -11,12 +11,15 @@
   font-family: inherit;
 }
 
-/* Heading roles are explicit; semantic h1–h6 levels remain the author's choice. */
+/* Explicit heading roles, including the adopted native ticket section title.
+   Semantic h1–h6 levels remain the author's choice. */
 .bckfc-design :is(.bckfc-title, .bckfc-section-heading, .bckfc-item-heading),
 .bckfc-design
   :is(.bckfc-title, .bckfc-section-heading, .bckfc-item-heading)
-  > .fusion-title-heading {
+  > .fusion-title-heading,
+#main #bckfc-tickets .tribe-tickets__tickets-title {
   margin: 0;
+  padding: 0;
   color: inherit;
   font-family: var(--bckfc-font-heading);
   font-weight: 700;
@@ -33,7 +36,8 @@
 }
 
 .bckfc-design .bckfc-section-heading,
-.bckfc-design .bckfc-section-heading > .fusion-title-heading {
+.bckfc-design .bckfc-section-heading > .fusion-title-heading,
+#main #bckfc-tickets .tribe-tickets__tickets-title {
   font-size: var(--bckfc-text-section);
   line-height: 1.2;
 }
@@ -48,6 +52,11 @@
 .bckfc-design .bckfc-lead {
   font-size: var(--bckfc-text-lead);
   line-height: 1.65;
+}
+
+.bckfc-design .bckfc-supporting-text {
+  font-size: var(--bckfc-text-small);
+  line-height: 1.5;
 }
 
 .bckfc-design .bckfc-label {
@@ -107,9 +116,50 @@
   border-color: var(--bckfc-border-inverse);
 }
 
-.bckfc-design .bckfc-icon {
+.bckfc-design .bckfc-icon,
+.bckfc-design .bckfc-notice > svg {
   display: inline-block;
   width: var(--bckfc-icon-size);
   height: var(--bckfc-icon-size);
   flex-shrink: 0;
+}
+
+/* Shared icon/message treatment; color variants do not own section layout. */
+.bckfc-design .bckfc-notice {
+  --bckfc-notice-color: var(--bckfc-orange);
+  --bckfc-notice-background: color-mix(in srgb, var(--bckfc-orange) 10%, transparent);
+  /* Avada uses these variables for native link and hover colors. */
+  --link_color: var(--bckfc-notice-color);
+  --link_hover_color: var(--bckfc-notice-color);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bckfc-space-2);
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--bckfc-space-3);
+  border: 1px solid var(--bckfc-notice-color);
+  border-radius: var(--bckfc-radius);
+  background: var(--bckfc-notice-background);
+  color: var(--bckfc-notice-color);
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-body);
+  line-height: 1.5;
+}
+
+.bckfc-design .bckfc-notice--info {
+  --bckfc-notice-color: var(--bckfc-blue);
+  --bckfc-notice-background: color-mix(in srgb, var(--bckfc-blue) 8%, var(--bckfc-white));
+}
+
+.bckfc-design .bckfc-notice--compact {
+  align-items: center;
+  padding: var(--bckfc-space-2) var(--bckfc-space-3);
+  font-size: var(--bckfc-text-small);
+}
+
+.bckfc-design .bckfc-notice .bckfc-link {
+  color: inherit;
+  font-weight: 600;
 }

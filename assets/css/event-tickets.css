@@ -1,12 +1,12 @@
 /* Opt in with the native Avada container anchor "bckfc-tickets".
    The container supplies full width; its normal inner row keeps content aligned. */
 #main #bckfc-tickets {
-  --bckfc-ticket-padding: 16px;
+  --bckfc-ticket-padding: var(--bckfc-space-4);
   scroll-margin-top: 100px;
 }
 
 #main #bckfc-tickets > .fusion-fullwidth {
-  padding: 40px 8px;
+  padding: var(--bckfc-space-10) var(--bckfc-space-2);
   background: var(--bckfc-tan);
 }
 
@@ -36,6 +36,54 @@
   font-family: var(--bckfc-font-body);
 }
 
+/* Our intro is inside Tribe's form. The site's broad reset gives divs,
+   spans and links 3px padding; reset only our own presentation elements. */
+#main #bckfc-tickets :is(.bckfc-ticket-intro, .bckfc-ticket-heading),
+#main #bckfc-tickets .bckfc-notice > span,
+#main #bckfc-tickets .bckfc-notice .bckfc-link,
+#main #bckfc-tickets .bckfc-registration-deadline > span {
+  padding: 0;
+}
+
+#main #bckfc-tickets .bckfc-ticket-intro {
+  display: grid;
+  gap: var(--bckfc-space-2);
+  margin: 0 0 var(--bckfc-space-3);
+}
+
+#main #bckfc-tickets .bckfc-ticket-heading {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--bckfc-space-4);
+}
+
+#main #bckfc-tickets :is(.bckfc-ticket-purchase-instructions, .bckfc-registration-deadline) {
+  margin: 0;
+  color: var(--bckfc-ink);
+  font-family: var(--bckfc-font-body);
+}
+
+#main #bckfc-tickets .bckfc-ticket-purchase-instructions {
+  padding: var(--bckfc-space-1) var(--bckfc-space-2);
+  border-left: 3px solid var(--bckfc-orange);
+  font-weight: 600;
+}
+
+#main #bckfc-tickets .bckfc-registration-deadline {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bckfc-space-2);
+  padding: 0;
+}
+
+#main #bckfc-tickets .bckfc-registration-deadline svg {
+  width: var(--bckfc-icon-size);
+  height: var(--bckfc-icon-size);
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--bckfc-orange);
+}
+
 #main #bckfc-tickets .tribe-tickets__tickets-form {
   max-width: none;
   width: 100%;
@@ -45,21 +93,10 @@
   background: transparent;
 }
 
-#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-title {
-  margin: 0 0 24px;
-  padding: 0;
-  font-family: var(--bckfc-font-heading);
-  font-size: var(--bckfc-text-section);
-  font-weight: 600;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--bckfc-ink);
-}
-
 #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item {
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px 16px;
-  padding: 24px var(--bckfc-ticket-padding);
+  gap: var(--bckfc-space-1) var(--bckfc-space-4);
+  padding: var(--bckfc-space-4) var(--bckfc-ticket-padding);
   margin: 0;
   border: 1px solid var(--bckfc-border);
   border-bottom: 0;
@@ -72,6 +109,7 @@
   grid-column: 1 / -1;
   grid-row: 1;
   min-width: 0;
+  padding: 0;
   overflow-wrap: anywhere;
 }
 
@@ -81,14 +119,28 @@
   display: block;
   grid-column: 1 / -1;
   grid-row: 2;
-  margin: 0 0 8px;
+  margin: 0 0 var(--bckfc-space-2);
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
-#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-content-title {
+/* Native description classes change size by breakpoint; use our body role instead. */
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .tribe-tickets__tickets-item-details-content {
+  padding: 0;
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-body);
+  line-height: 1.5;
+  color: var(--bckfc-muted);
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .tribe-tickets__tickets-item-content-title {
   font-family: var(--bckfc-font-body);
   font-size: var(--bckfc-text-lead);
+  padding: 0;
   color: var(--bckfc-ink);
   font-weight: 600;
   line-height: 1.4;
@@ -119,66 +171,89 @@
   padding: 0;
 }
 
-#main #bckfc-tickets
-  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
-  :is(
-    .tribe-tickets__tickets-item-quantity-add,
-    .tribe-tickets__tickets-item-quantity-remove,
-    .quantity .plus,
-    .quantity .minus
-  ) {
-  width: 44px;
-  height: 44px;
-  margin: 0;
-  border: 1px solid var(--bckfc-border);
-  border-radius: var(--bckfc-radius);
-  background: var(--bckfc-gray);
-  color: var(--bckfc-ink);
-  line-height: 1;
-}
-
+/* Avada replaces Tribe's visible +/- buttons with .quantity.buttons_added.
+   One joined control treatment serves both the page picker and attendee modal. */
 #main #bckfc-tickets
   :is(.tribe-tickets__tickets-form, .tribe-modal__content)
   .tribe-tickets__tickets-item-quantity-number {
   width: auto;
-  height: 44px;
+  height: auto;
+  padding: 0;
   border: 0;
-}
-
-#main #bckfc-tickets
-  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
-  .tribe-tickets__tickets-item-quantity-number-input {
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-lead);
 }
 
 #main #bckfc-tickets
   :is(.tribe-tickets__tickets-form, .tribe-modal__content)
   .quantity.buttons_added {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 0;
   width: auto;
-  height: 44px;
+  height: auto;
   margin: 0;
-  border: 0;
+  padding: 0;
+  border: 1px solid var(--bckfc-border);
+  border-radius: var(--bckfc-radius);
+  background: var(--bckfc-white);
 }
 
-#main #bckfc-tickets :is(.tribe-tickets__tickets-form, .tribe-modal__content) .quantity .qty {
-  width: 40px;
-  height: 44px;
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity :is(.minus, .qty, .plus) {
+  box-sizing: border-box;
+  flex: 0 0 var(--bckfc-control-height-compact);
+  width: var(--bckfc-control-height-compact);
+  height: var(--bckfc-control-height-compact);
+  margin: 0;
   padding: 0;
   border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--bckfc-ink);
   font-family: var(--bckfc-font-body);
   font-size: var(--bckfc-text-lead);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity .qty {
+  border-inline: 1px solid var(--bckfc-border);
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity .minus {
+  border-radius: var(--bckfc-radius) 0 0 var(--bckfc-radius);
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity .plus {
+  border-radius: 0 var(--bckfc-radius) var(--bckfc-radius) 0;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity :is(.minus, .plus):hover:not(:disabled) {
+  background: var(--bckfc-gray);
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  .quantity :is(.minus, .qty, .plus):focus-visible {
+  outline: 2px solid var(--bckfc-ink);
+  outline-offset: -2px;
 }
 
 #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-footer {
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: var(--bckfc-space-4);
   margin: 0;
-  padding: 24px var(--bckfc-ticket-padding);
+  padding: var(--bckfc-space-4) var(--bckfc-ticket-padding);
   border: 1px solid var(--bckfc-border);
   background: var(--bckfc-white);
 }
@@ -187,7 +262,34 @@
   .tribe-tickets__tickets-form
   :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
   margin: 0;
+  padding: 0;
   order: 0;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-body);
+  line-height: 1.5;
+  color: var(--bckfc-muted);
+}
+
+/* Currency markup has nested spans; inherit the summary role through that markup. */
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) :where(span) {
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total-wrap, .tribe-tickets__tickets-footer-quantity-number) {
+  color: var(--bckfc-ink);
+  font-weight: 700;
 }
 
 #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-buy {
@@ -198,12 +300,17 @@
 
 #main #bckfc-tickets
   .tribe-tickets__tickets-form
-  :is(button, input):not(.tribe-tickets__tickets-buy):focus-visible {
+  :is(button, input):not(.tribe-tickets__tickets-buy, .qty, .minus, .plus):focus-visible {
   outline: 2px solid var(--bckfc-ink);
   outline-offset: 3px;
 }
 
 /* Modal appearance is explicit; the page form's grid and spacing do not apply here. */
+#main #bckfc-tickets .tribe-modal__wrapper--ar .tribe-dialog__title {
+  font-size: var(--bckfc-text-section);
+  line-height: 1.2;
+}
+
 #main #bckfc-tickets
   .tribe-modal__content
   :is(
@@ -219,7 +326,7 @@
   font-size: var(--bckfc-text-item);
   font-weight: 700;
   line-height: 1.3;
-  margin-bottom: 16px;
+  margin-bottom: var(--bckfc-space-4);
 }
 
 /* Own field spacing here instead of accumulating the site's blanket 3px padding. */
@@ -241,7 +348,7 @@
 #main #bckfc-tickets .tribe-modal__content .tribe-tickets__form-field-label {
   flex: none;
   max-height: none;
-  margin: 0 0 8px;
+  margin: 0 0 var(--bckfc-space-2);
 }
 
 #main #bckfc-tickets
@@ -257,19 +364,19 @@
   :is(.tribe-tickets__form-field-input-wrapper, .tribe-common-form-control-checkbox-radio-group)
   > .tribe-tickets__form-field-description {
   order: -1;
-  margin: 0 0 8px;
+  margin: 0 0 var(--bckfc-space-2);
   line-height: 1.4;
 }
 
 #main #bckfc-tickets .tribe-modal__content .tribe-common-form-control-checkbox-radio-group {
-  gap: 4px;
+  gap: var(--bckfc-space-1);
 }
 
 #main #bckfc-tickets .tribe-modal__content .tribe-common-form-control-checkbox__label {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 44px;
+  gap: var(--bckfc-space-2);
+  min-height: var(--bckfc-control-height-compact);
   padding: 0;
   margin: 0;
   line-height: 1.4;
@@ -292,6 +399,41 @@
 #main #bckfc-tickets .tribe-modal__content .tribe-common-form-control-checkbox__input::after {
   content: none;
 }
+/* The compact modal uses the same ticket row layout at every viewport width. */
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--bckfc-space-3);
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-content-title-container {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-content-title {
+  overflow-wrap: anywhere;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-details-summary {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-details-content {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-extra {
+  grid-column: 1;
+  grid-row: 4;
+  text-align: left;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-quantity {
+  grid-column: 2;
+  grid-row: 4;
+  padding: 0;
+}
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-total-wrap {
+  display: none;
+}
+
 @media (max-width: 767px) {
   /* Keep the native dialog within the visible viewport, including the admin bar. */
   #main #bckfc-tickets .tribe-dialog {
@@ -302,12 +444,12 @@
   #main #bckfc-tickets .tribe-modal__wrapper--ar {
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: auto;
     max-height: 100%;
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior-y: contain;
-    padding: 12px;
+    padding: var(--bckfc-space-3);
   }
   #main #bckfc-tickets .tribe-modal__wrapper--ar > [role='document'],
   #main #bckfc-tickets .tribe-modal__content {
@@ -315,11 +457,11 @@
     padding-right: 0;
   }
   #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-item {
-    padding: 12px;
+    padding: var(--bckfc-space-3);
   }
   #main #bckfc-tickets .tribe-modal__wrapper--ar .tribe-dialog__close-button {
-    width: 44px;
-    height: 44px;
+    width: var(--bckfc-control-height-compact);
+    height: var(--bckfc-control-height-compact);
     background-size: 18px;
     background-position: center;
     background-repeat: no-repeat;
@@ -327,49 +469,12 @@
     right: 0;
   }
   #main #bckfc-tickets .tribe-modal__wrapper--ar .tribe-dialog__title {
-    padding-right: 48px;
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-content-title-container {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    min-width: 0;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-content-title {
-    font-size: 1rem;
-    line-height: 1.4;
-    overflow-wrap: anywhere;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-details-summary {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-details-content {
-    grid-column: 1 / -1;
-    grid-row: 3;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-extra {
-    grid-column: 1;
-    grid-row: 4;
-    text-align: left;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-quantity {
-    grid-column: 2;
-    grid-row: 4;
-    padding: 0;
-  }
-  #main #bckfc-tickets .tribe-modal__content .tribe-tickets__tickets-item-total-wrap {
-    display: none;
+    padding-right: var(--bckfc-space-12);
   }
   #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: var(--bckfc-space-2);
   }
   #main #bckfc-tickets
     .tribe-modal__content
@@ -381,17 +486,31 @@
 }
 
 @media (min-width: 768px) {
+  #main #bckfc-tickets .tribe-modal__wrapper--ar {
+    width: 600px;
+    height: auto;
+    max-height: calc(100dvh - 160px);
+    overflow-y: auto;
+  }
+
+  #main #bckfc-tickets .bckfc-ticket-heading {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--bckfc-space-6);
+  }
+
   #main #bckfc-tickets {
-    --bckfc-ticket-padding: 32px;
+    --bckfc-ticket-padding: var(--bckfc-space-8);
   }
 
   #main #bckfc-tickets > .fusion-fullwidth {
-    padding: 48px 24px;
+    padding: var(--bckfc-space-12) var(--bckfc-space-6);
   }
 
   #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item {
     grid-template-columns: minmax(0, 1fr) auto auto;
-    column-gap: 32px;
+    column-gap: var(--bckfc-space-8);
   }
   #main #bckfc-tickets
     .tribe-tickets__tickets-form
@@ -426,80 +545,6 @@
   display: none;
 }
 
-
-/* Tribe supplies the ticket count and account link for this compact notice. */
-#main #bckfc-tickets .tribe-link-view-attendee {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 8px 12px;
-  border: 1px solid var(--bckfc-blue);
-  border-radius: var(--bckfc-radius);
-  background: color-mix(in srgb, var(--bckfc-blue) 8%, var(--bckfc-white));
-  color: var(--bckfc-blue);
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-body);
-  line-height: 1.5;
-}
-
-#main #bckfc-tickets .tribe-link-view-attendee > svg {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
-}
-
-#main #bckfc-tickets .tribe-link-view-attendee a {
-  display: inline;
-  margin-left: 8px;
-  color: inherit;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-#main #bckfc-tickets .tribe-link-view-attendee a:hover {
-  text-decoration-thickness: 2px;
-}
-
-#main #bckfc-tickets .bckfc-ticket-heading {
-  display: flex;
-  flex-direction: column;
-  gap: var(--bckfc-space-2);
-  margin-bottom: var(--bckfc-space-6);
-}
-
-#main #bckfc-tickets .tribe-tickets__tickets-form .bckfc-ticket-heading .tribe-tickets__tickets-title {
-  margin: 0;
-}
-
-#main #bckfc-tickets .bckfc-ticket-heading:has(+ :is(.bckfc-ticket-purchase-instructions, .bckfc-registration-deadline)) {
-  margin-bottom: var(--bckfc-space-2);
-}
-
-#main #bckfc-tickets .bckfc-ticket-purchase-instructions {
-  margin: 0 0 12px;
-  padding: 4px 8px;
-  border-left: 3px solid var(--bckfc-orange);
-  color: var(--bckfc-ink);
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-body);
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-@media (min-width: 768px) {
-  #main #bckfc-tickets .bckfc-ticket-heading {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--bckfc-space-6);
-  }
-}
-
 /* Presentation only; Tools enforces the login requirement on the server. */
 #main #bckfc-tickets .bckfc-registration-gate {
   display: grid;
@@ -522,29 +567,10 @@
   z-index: 1;
   display: grid;
   place-items: center;
-  padding: 24px 12px;
+  padding: var(--bckfc-space-6) var(--bckfc-space-3);
   text-align: center;
 }
 
 #main #bckfc-tickets .bckfc-registration-gate__prompt > div {
   max-width: 32rem;
-}
-
-#main #bckfc-tickets .bckfc-registration-deadline {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 0 0 12px;
-  color: var(--bckfc-ink);
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-body);
-  line-height: 1.5;
-}
-
-#main #bckfc-tickets .bckfc-registration-deadline svg {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
-  margin-top: 2px;
-  color: var(--bckfc-orange);
 }

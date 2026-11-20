@@ -64,8 +64,7 @@
   text-transform: uppercase;
 }
 
-.bckfc-header__facts > span,
-.bckfc-header__alert {
+.bckfc-header__facts > span {
   display: flex;
   align-items: flex-start;
   gap: var(--bckfc-space-2);
@@ -79,15 +78,6 @@
 
 .bckfc-header__facts svg {
   margin-top: 2px;
-}
-
-.bckfc-header__alert {
-  width: fit-content;
-  padding: var(--bckfc-space-3);
-  border: 1px solid var(--bckfc-orange);
-  border-radius: var(--bckfc-radius);
-  color: var(--bckfc-orange);
-  background: color-mix(in srgb, var(--bckfc-orange) 10%, transparent);
 }
 
 .bckfc-header__status {

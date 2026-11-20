@@ -67,7 +67,7 @@ final class EventTickets
 
     public static function openTicketHeading(): void
     {
-        echo '<div class="bckfc-ticket-heading">';
+        echo '<div class="bckfc-ticket-intro bckfc-design"><div class="bckfc-ticket-heading">';
     }
 
     public static function renderTicketHeadingDetails(): void

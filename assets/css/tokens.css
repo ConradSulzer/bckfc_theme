@@ -17,6 +17,8 @@
 
   --bckfc-font-heading: "Oswald", "Arial Narrow", sans-serif;
   --bckfc-font-body: "Source Sans 3", Arial, sans-serif;
+  /* Typography roles own responsive sizing. Components retain their role at every width.
+     Large headings scale fluidly; smaller text stays steady for readability. */
   --bckfc-text-title: clamp(2.25rem, 5vw, 4.5rem);
   --bckfc-text-section: clamp(1.5rem, 3vw, 2rem);
   --bckfc-text-item: 1.25rem;
@@ -39,6 +41,7 @@
 
   --bckfc-radius: 0.25rem;
   --bckfc-control-height: 3rem;
+  --bckfc-control-height-compact: 2.75rem;
   --bckfc-icon-size: 1.25rem;
   --bckfc-motion-duration: 150ms;
 }

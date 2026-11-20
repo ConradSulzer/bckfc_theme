@@ -8,7 +8,7 @@
     <div class="bckfc-header__inner<?= $imageUrl !== '' ? ' bckfc-header__inner--with-image' : '' ?>">
         <div class="bckfc-header__content">
             <?php if (trim($header['alert']) !== ''): ?>
-                <div class="bckfc-header__alert">
+                <div class="bckfc-notice">
                     <?php include $icons . 'triangle-alert.svg'; ?>
                     <span><?= esc_html($header['alert']) ?></span>
                 </div>
