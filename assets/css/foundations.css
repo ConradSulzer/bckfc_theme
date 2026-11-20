@@ -17,7 +17,8 @@
 .bckfc-design
   :is(.bckfc-title, .bckfc-section-heading, .bckfc-item-heading)
   > .fusion-title-heading,
-#main #bckfc-tickets .tribe-tickets__tickets-title {
+#main #bckfc-tickets .tribe-tickets__tickets-title,
+#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading) {
   margin: 0;
   padding: 0;
   color: inherit;
@@ -43,7 +44,8 @@
 }
 
 .bckfc-design .bckfc-item-heading,
-.bckfc-design .bckfc-item-heading > .fusion-title-heading {
+.bckfc-design .bckfc-item-heading > .fusion-title-heading,
+#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading) {
   font-size: var(--bckfc-text-item);
   font-weight: 400;
   line-height: 1.3;

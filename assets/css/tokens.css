@@ -8,6 +8,7 @@
   --bckfc-khaki: #7d6a59;
   --bckfc-tan: #f8f5ed;
   --bckfc-gray: #e8e8e8;
+  --bckfc-gray-subtle: #f7f7f7;
   --bckfc-gray-inset: #e5e5e5;
   --bckfc-border: #b8c2c8;
   --bckfc-muted: #64737d;
@@ -33,6 +34,7 @@
   --bckfc-space-4: 1rem;
   --bckfc-space-5: 1.25rem;
   --bckfc-space-6: 1.5rem;
+  --bckfc-space-7: 1.75rem;
   --bckfc-space-8: 2rem;
   --bckfc-space-10: 2.5rem;
   --bckfc-space-12: 3rem;
