@@ -73,6 +73,10 @@
 }
 
 /* Surfaces own color only. Avada owns container width and section placement. */
+.bckfc-design.bckfc-surface--orange {
+  background: var(--bckfc-orange);
+  color: var(--bckfc-white);
+}
 .bckfc-design.bckfc-surface--white {
   background: var(--bckfc-white);
 }

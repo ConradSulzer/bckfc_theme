@@ -98,3 +98,12 @@ Ticket density: page rows and footer use 16px vertical padding; title/descriptio
 Ticket modal: 600px wide at viewport widths of 768px and above; use content height capped at calc(100dvh - 160px), retaining native desktop clearance and scrolling longer forms. Below 768px retain full-width mobile presentation with content height capped at the available dialog height. Its ticket rows use the same stacked layout at every width so controls fit the compact dialog.
 
 Modal surfaces: ink header with white Oswald 600 title; white ticket area and footer; gray-subtle (#f7f7f7) totals strip and attendee cards; tan outer attendee section; white inputs. Header vertical padding uses space-7 (28px). Ticket names in the modal cart and above each attendee group share the foundation item-heading role (Oswald 400, 20px, uppercase). Attendee headings remain Source Sans. The redundant Attendee Details heading and mixed-cart non-attendee-information notice are hidden only in the adopted modal. Blue outline checkboxes keep white interiors when checked. Modal quantity cells are 36px; page quantity cells remain 44px. Ticket names span the row above quantity left and price right; descriptions remain on the event page.
+
+
+HIGHLIGHTS ELEMENT
+
+BCKFC Highlights uses native Avada child-item editing, drag ordering, iconpicker and link_selector. Each Highlight owns label, plain-text value (including data shortcodes), optional link and optional icon. No item-count enforcement; designed for 1–4. Values use the shared item-heading role and labels use bckfc-label. Empty values omit their item.
+
+Place it in a native Avada container with Site Width interior, zero padding and column spacing, using bckfc-design bckfc-surface--orange. The container owns full-width color; the element owns only its grid. Desktop distributes items equally. Below 768px two/four use paired columns; one/three use full-width rows. Dividers and spacing use shared tokens.
+
+Highlights uses Avada's own icon classes, normalized by fusion_font_awesome_name_handler. The Local example consistently uses Font Awesome Solid. Native picker exposes custom icon sets; an upload was not tested. Existing header/ticket SVG assets remain unchanged pending the separately agreed migration review.

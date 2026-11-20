@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="currentColor">
+  <path d="M4 6h56c-1 6-5 10-11 10H15C9 16 5 12 4 6Zm25 12h6v7h-6Z"/>
+  <path fill-rule="evenodd" d="M9 53V47a23 23 0 0 1 46 0v6Zm23-22a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/>
+  <path d="M9 55h46v5H9Zm22-21h2v3h-2Zm-6 6v2h-3v-2Zm17 0v2h-3v-2Zm-11 6h2v3h-2Z"/>
+  <path d="m31 40 6-6 2 2-6 6Z"/>
+  <path d="M35 41a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+</svg>
