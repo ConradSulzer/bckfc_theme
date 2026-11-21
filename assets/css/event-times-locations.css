@@ -90,7 +90,12 @@
 .bckfc-times-locations__overview + .bckfc-times-locations__details {
   margin-top: var(--bckfc-space-6);
   padding-top: var(--bckfc-space-6);
-  border-top: 1px solid var(--bckfc-border-inverse);
+}
+
+@media (max-width: 767px) {
+  .bckfc-times-locations__overview + .bckfc-times-locations__details {
+    border-top: 1px solid var(--bckfc-border-inverse);
+  }
 }
 
 @media (min-width: 768px) {
