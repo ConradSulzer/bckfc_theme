@@ -1,0 +1,75 @@
+/* Tools supplies the table; the theme owns its presentation. */
+.bckfc-size-limits {
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--bckfc-border);
+  border-collapse: collapse;
+  background: var(--bckfc-white);
+  color: var(--bckfc-ink);
+  font: inherit;
+}
+
+.bckfc-size-limits :is(th, td) {
+  padding: var(--bckfc-space-3) var(--bckfc-space-4);
+  border: 0;
+  border-bottom: 1px solid var(--bckfc-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.bckfc-size-limits thead {
+  background: var(--bckfc-gray-subtle);
+}
+
+.bckfc-size-limits tbody th {
+  font-family: var(--bckfc-font-body);
+  font-weight: 600;
+}
+
+.bckfc-size-limits__mobile-label {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .bckfc-size-limits thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .bckfc-size-limits,
+  .bckfc-size-limits tbody {
+    display: block;
+  }
+
+  .bckfc-size-limits tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--bckfc-space-2) var(--bckfc-space-4);
+    padding: var(--bckfc-space-3) var(--bckfc-space-4);
+  }
+
+  .bckfc-size-limits tbody tr + tr {
+    border-top: 1px solid var(--bckfc-border);
+  }
+
+  .bckfc-size-limits :is(th, td) {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .bckfc-size-limits tbody th {
+    grid-column: 1 / -1;
+  }
+
+  .bckfc-size-limits__mobile-label {
+    display: block;
+    margin-bottom: var(--bckfc-space-1);
+    color: var(--bckfc-muted);
+  }
+}
