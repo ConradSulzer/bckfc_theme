@@ -54,12 +54,23 @@
   line-height: 1.3;
 }
 
+/* Compact body-family headings, distinct from introductory lead copy. */
+.bckfc-design .bckfc-compact-heading,
+#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-content-title,
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-item-title {
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-lead);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .bckfc-design .bckfc-lead {
   font-size: var(--bckfc-text-lead);
   line-height: 1.65;
 }
 
-.bckfc-design .bckfc-supporting-text {
+.bckfc-design .bckfc-supporting-text,
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__form-field-description {
   font-size: var(--bckfc-text-small);
   line-height: 1.5;
 }
@@ -127,7 +138,9 @@
 }
 
 .bckfc-design .bckfc-icon,
-.bckfc-design .bckfc-notice > svg {
+.bckfc-design .bckfc-notice > svg,
+.bckfc-header svg,
+#main #bckfc-tickets .bckfc-registration-deadline svg {
   display: inline-block;
   width: var(--bckfc-icon-size);
   height: var(--bckfc-icon-size);
@@ -203,18 +216,42 @@
   text-wrap: balance;
 }
 
-/* Native authored sections use the same interior rhythm as our components.
-   Avada retains ownership of site width and column layout. */
+/* Section rhythm. Apply gutters inside Avada's constrained row, not outside it.
+   Custom components already sit inside that row and own their own gutter.
+   The native-row selectors override Avada's #wrapper #main row-padding reset. */
 .fusion-fullwidth.bckfc-section {
-  padding: var(--bckfc-space-6) var(--bckfc-space-2);
+  padding: var(--bckfc-space-6) 0;
 }
 
-.bckfc-section .bckfc-section-heading {
+.bckfc-categories,
+.bckfc-times-locations {
+  padding-block: var(--bckfc-space-6);
+}
+
+#wrapper #main .fusion-fullwidth.bckfc-section > .fusion-builder-row,
+.bckfc-categories,
+.bckfc-times-locations,
+#wrapper #main #bckfc-tickets > .fusion-fullwidth > .fusion-builder-row {
+  padding-inline: var(--bckfc-space-2);
+}
+
+.bckfc-section .bckfc-section-heading,
+.bckfc-categories > .bckfc-section-heading,
+.bckfc-times-locations__schedule > .bckfc-section-heading {
   margin-bottom: var(--bckfc-space-6);
 }
 
 @media (min-width: 768px) {
-  .fusion-fullwidth.bckfc-section {
+  .fusion-fullwidth.bckfc-section,
+  .bckfc-categories,
+  .bckfc-times-locations {
     padding-block: var(--bckfc-space-8);
+  }
+
+  #wrapper #main .fusion-fullwidth.bckfc-section > .fusion-builder-row,
+  .bckfc-categories,
+  .bckfc-times-locations,
+  #wrapper #main #bckfc-tickets > .fusion-fullwidth > .fusion-builder-row {
+    padding-inline: var(--bckfc-space-8);
   }
 }

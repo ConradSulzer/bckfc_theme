@@ -1,0 +1,46 @@
+/* Shared base for our two data tables; each component owns its column layout. */
+.bckfc-categories__table,
+.bckfc-size-limits {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: var(--bckfc-white);
+  font: inherit;
+}
+
+.bckfc-categories__table :is(th, td),
+.bckfc-size-limits :is(th, td) {
+  padding: var(--bckfc-space-3) var(--bckfc-space-4);
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+@media (max-width: 767px) {
+  /* Visually hide column headings without removing their accessible names. */
+  .bckfc-categories__table thead,
+  .bckfc-size-limits thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .bckfc-categories__table,
+  .bckfc-categories__table tbody,
+  .bckfc-size-limits,
+  .bckfc-size-limits tbody {
+    display: block;
+  }
+
+  .bckfc-categories__table :is(th, td),
+  .bckfc-size-limits :is(th, td) {
+    min-width: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+  }
+}

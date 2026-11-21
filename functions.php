@@ -31,7 +31,7 @@ function enqueueDesignStyles(): void
 
     $dependency = 'bckfc-fonts';
 
-    foreach (['tokens', 'foundations', 'buttons', 'accordions', 'event-header', 'event-highlights', 'event-categories', 'event-size-limits', 'event-times-locations', 'event-tickets'] as $name) {
+    foreach (['tokens', 'foundations', 'tables', 'buttons', 'accordions', 'event-header', 'event-highlights', 'event-categories', 'event-size-limits', 'event-times-locations', 'event-tickets'] as $name) {
         $path = '/assets/css/' . $name . '.css';
         $handle = 'bckfc-' . $name;
 

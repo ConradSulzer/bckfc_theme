@@ -1,20 +1,11 @@
 /* Tools supplies the table; the theme owns its presentation. */
 .bckfc-size-limits {
-  width: 100%;
-  margin: 0;
   border: 1px solid var(--bckfc-border);
-  border-collapse: collapse;
-  background: var(--bckfc-white);
   color: var(--bckfc-ink);
-  font: inherit;
 }
 
 .bckfc-size-limits :is(th, td) {
-  padding: var(--bckfc-space-3) var(--bckfc-space-4);
-  border: 0;
   border-bottom: 1px solid var(--bckfc-border);
-  text-align: left;
-  vertical-align: top;
 }
 
 .bckfc-size-limits thead {
@@ -31,20 +22,6 @@
 }
 
 @media (max-width: 767px) {
-  .bckfc-size-limits thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .bckfc-size-limits,
-  .bckfc-size-limits tbody {
-    display: block;
-  }
-
   .bckfc-size-limits tbody tr {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -57,10 +34,7 @@
   }
 
   .bckfc-size-limits :is(th, td) {
-    min-width: 0;
-    padding: 0;
     border: 0;
-    overflow-wrap: anywhere;
   }
 
   .bckfc-size-limits tbody th {

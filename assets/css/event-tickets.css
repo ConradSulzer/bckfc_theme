@@ -6,7 +6,7 @@
 }
 
 #main #bckfc-tickets > .fusion-fullwidth {
-  padding: var(--bckfc-space-10) var(--bckfc-space-2);
+  padding: var(--bckfc-space-10) 0;
   background: var(--bckfc-tan);
 }
 
@@ -36,7 +36,8 @@
   font-family: var(--bckfc-font-body);
 }
 
-/* Our intro is inside Tribe's form. The site's broad reset gives divs,
+/* Heading and notices.
+   Our intro is inside Tribe's form. The site's broad reset gives divs,
    spans and links 3px padding; reset only our own presentation elements. */
 #main #bckfc-tickets :is(.bckfc-ticket-intro, .bckfc-ticket-heading),
 #main #bckfc-tickets .bckfc-notice > span,
@@ -77,13 +78,11 @@
 }
 
 #main #bckfc-tickets .bckfc-registration-deadline svg {
-  width: var(--bckfc-icon-size);
-  height: var(--bckfc-icon-size);
-  flex-shrink: 0;
   margin-top: 2px;
   color: var(--bckfc-orange);
 }
 
+/* Page picker. */
 #main #bckfc-tickets .tribe-tickets__tickets-form {
   max-width: none;
   width: 100%;
@@ -136,12 +135,8 @@
 }
 
 #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-content-title {
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-lead);
   padding: 0;
   color: var(--bckfc-ink);
-  font-weight: 600;
-  line-height: 1.4;
 }
 
 #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-extra {
@@ -167,6 +162,63 @@
   grid-row: 3;
   align-self: center;
   padding: 0;
+}
+
+#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-footer {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--bckfc-space-4);
+  margin: 0;
+  padding: var(--bckfc-space-4) var(--bckfc-ticket-padding);
+  border: 1px solid var(--bckfc-border);
+  background: var(--bckfc-white);
+}
+
+#main #bckfc-tickets
+  .tribe-tickets__tickets-form
+  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
+  margin: 0;
+  padding: 0;
+  order: 0;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-body);
+  line-height: 1.5;
+  color: var(--bckfc-muted);
+}
+
+/* Currency markup has nested spans; inherit the summary role through that markup. */
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) :where(span) {
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+#main #bckfc-tickets
+  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
+  :is(.tribe-tickets__tickets-footer-total-wrap, .tribe-tickets__tickets-footer-quantity-number) {
+  color: var(--bckfc-ink);
+  font-weight: 700;
+}
+
+#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-buy {
+  order: 1;
+  width: 100%;
+  margin: 0;
+}
+
+#main #bckfc-tickets
+  .tribe-tickets__tickets-form
+  :is(button, input):not(.tribe-tickets__tickets-buy, .qty, .minus, .plus):focus-visible {
+  outline: 2px solid var(--bckfc-ink);
+  outline-offset: 3px;
 }
 
 /* Avada replaces Tribe's visible +/- buttons with .quantity.buttons_added.
@@ -247,63 +299,6 @@
   outline-offset: -2px;
 }
 
-#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-footer {
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--bckfc-space-4);
-  margin: 0;
-  padding: var(--bckfc-space-4) var(--bckfc-ticket-padding);
-  border: 1px solid var(--bckfc-border);
-  background: var(--bckfc-white);
-}
-
-#main #bckfc-tickets
-  .tribe-tickets__tickets-form
-  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
-  margin: 0;
-  padding: 0;
-  order: 0;
-}
-
-#main #bckfc-tickets
-  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
-  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) {
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-body);
-  line-height: 1.5;
-  color: var(--bckfc-muted);
-}
-
-/* Currency markup has nested spans; inherit the summary role through that markup. */
-#main #bckfc-tickets
-  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
-  :is(.tribe-tickets__tickets-footer-total, .tribe-tickets__tickets-footer-quantity) :where(span) {
-  padding: 0;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-}
-
-#main #bckfc-tickets
-  :is(.tribe-tickets__tickets-form, .tribe-modal__content)
-  :is(.tribe-tickets__tickets-footer-total-wrap, .tribe-tickets__tickets-footer-quantity-number) {
-  color: var(--bckfc-ink);
-  font-weight: 700;
-}
-
-#main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-buy {
-  order: 1;
-  width: 100%;
-  margin: 0;
-}
-
-#main #bckfc-tickets
-  .tribe-tickets__tickets-form
-  :is(button, input):not(.tribe-tickets__tickets-buy, .qty, .minus, .plus):focus-visible {
-  outline: 2px solid var(--bckfc-ink);
-  outline-offset: 3px;
-}
-
 /* White controls sit on shaded attendee groups within a white dialog.
    Ticket names share the item-heading role; attendee and field headings use the body family. */
 #main #bckfc-tickets .tribe-modal__wrapper--ar {
@@ -349,14 +344,6 @@
 }
 
 #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-item-title {
-  font-family: var(--bckfc-font-body);
-  font-size: var(--bckfc-text-lead);
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--bckfc-ink);
-}
-
-#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-item-title {
   margin: 0 0 var(--bckfc-space-4);
   padding: 0;
   color: var(--bckfc-blue);
@@ -373,10 +360,6 @@
 #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-container {
   background: var(--bckfc-tan);
   padding: var(--bckfc-space-5) var(--bckfc-modal-padding);
-  margin: 0;
-}
-
-#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-form {
   margin: 0;
 }
 
@@ -403,7 +386,6 @@
 
 #main #bckfc-tickets .tribe-modal__content .tribe-tickets__form-field-description {
   color: var(--bckfc-muted);
-  font-size: var(--bckfc-text-small);
 }
 
 #main #bckfc-tickets .tribe-modal__content :is(input[type='text'], input[type='tel'], input[type='email'], select) {
@@ -459,7 +441,6 @@
   > .tribe-tickets__form-field-description {
   order: -1;
   margin: 0 0 var(--bckfc-space-2);
-  line-height: 1.4;
 }
 
 #main #bckfc-tickets .tribe-modal__content .tribe-common-form-control-checkbox-radio-group {
@@ -588,14 +569,27 @@
   background: color-mix(in srgb, var(--bckfc-blue) 6%, var(--bckfc-white));
 }
 
-@media (max-width: 767px) {
+/* Ticket names already identify the attendee forms. Tribe toggles the section
+   heading with inline display styles for mixed carts, so this override is required. */
+#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__attendee-tickets-title, .tribe-tickets__notice--non-ar) {
+  display: none !important;
+}
 
+/* Keep one clear purchase action in the attendee modal. */
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer-cart-button,
+#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer-divider {
+  display: none;
+}
+
+/* Responsive page and dialog layout. */
+@media (max-width: 767px) {
   /* Keep the native dialog within the visible viewport, including the admin bar. */
   #main #bckfc-tickets .tribe-dialog {
     top: var(--wp-admin--admin-bar--height, 0px);
     height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
     padding: 0;
   }
+
   #main #bckfc-tickets .tribe-modal__wrapper--ar {
     box-sizing: border-box;
     width: 100%;
@@ -605,24 +599,18 @@
     overflow-y: auto;
     overscroll-behavior-y: contain;
     --bckfc-modal-padding: var(--bckfc-space-3);
-    padding: 0;
   }
-  #main #bckfc-tickets .tribe-modal__wrapper--ar > [role='document'],
-  #main #bckfc-tickets .tribe-modal__content {
-    padding-left: 0;
-    padding-right: 0;
-  }
+
   #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-item {
     padding: var(--bckfc-space-3);
   }
-  #main #bckfc-tickets .tribe-modal__wrapper--ar .tribe-dialog__title {
-    padding-right: var(--bckfc-space-12);
-  }
+
   #main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer {
     flex-direction: column;
     align-items: stretch;
     gap: var(--bckfc-space-2);
   }
+
   #main #bckfc-tickets
     .tribe-modal__content
     .tribe-tickets__attendee-tickets-footer-checkout-button {
@@ -652,50 +640,43 @@
   }
 
   #main #bckfc-tickets > .fusion-fullwidth {
-    padding: var(--bckfc-space-12) var(--bckfc-space-6);
+    padding-block: var(--bckfc-space-12);
   }
 
   #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item {
     grid-template-columns: minmax(0, 1fr) auto auto;
     column-gap: var(--bckfc-space-8);
   }
+
   #main #bckfc-tickets
     .tribe-tickets__tickets-form
     .tribe-tickets__tickets-item-content-title-container {
     grid-column: 1;
   }
+
   #main #bckfc-tickets
     .tribe-tickets__tickets-form
     .tribe-tickets__tickets-item-details-content:not(.tribe-common-a11y-hidden) {
     grid-column: 1;
     margin-bottom: 0;
   }
+
   #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-extra {
     grid-column: 2;
     grid-row: 1 / span 2;
     align-self: center;
     text-align: right;
   }
+
   #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-item-quantity {
     grid-column: 3;
     grid-row: 1 / span 2;
   }
+
   #main #bckfc-tickets .tribe-tickets__tickets-form .tribe-tickets__tickets-buy {
     width: auto;
     margin-left: auto;
   }
-}
-
-/* Ticket names already identify the attendee forms. Tribe toggles the section
-   heading with inline display styles for mixed carts, so this override is required. */
-#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__attendee-tickets-title, .tribe-tickets__notice--non-ar) {
-  display: none !important;
-}
-
-/* Keep one clear purchase action in the attendee modal. */
-#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer-cart-button,
-#main #bckfc-tickets .tribe-modal__content .tribe-tickets__attendee-tickets-footer-divider {
-  display: none;
 }
 
 /* Presentation only; Tools enforces the login requirement on the server. */

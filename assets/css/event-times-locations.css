@@ -1,8 +1,4 @@
 /* Place in a native site-width container with bckfc-design bckfc-surface--ink. */
-.bckfc-times-locations {
-  padding: var(--bckfc-space-6) var(--bckfc-space-2);
-}
-
 .bckfc-times-locations__overview {
   display: grid;
   gap: var(--bckfc-space-6);
@@ -16,10 +12,6 @@
 .bckfc-times-locations__overview > * + * {
   border-top: 1px solid var(--bckfc-border-inverse);
   padding-top: var(--bckfc-space-6);
-}
-
-.bckfc-times-locations__schedule > .bckfc-section-heading {
-  margin-bottom: var(--bckfc-space-6);
 }
 
 .bckfc-times-locations__times {
@@ -84,7 +76,7 @@
 .bckfc-times-locations__icon {
   margin-block: var(--bckfc-space-4);
   color: var(--bckfc-orange);
-  font-size: var(--bckfc-space-12);
+  font-size: var(--bckfc-icon-size-location);
 }
 
 .bckfc-times-locations__overview + .bckfc-times-locations__details {
@@ -99,10 +91,6 @@
 }
 
 @media (min-width: 768px) {
-  .bckfc-times-locations {
-    padding: var(--bckfc-space-8);
-  }
-
   .bckfc-times-locations__overview {
     grid-auto-flow: column;
     grid-auto-columns: minmax(0, 1fr);

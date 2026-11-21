@@ -9,7 +9,6 @@
   --bckfc-tan: #f8f5ed;
   --bckfc-gray: #e8e8e8;
   --bckfc-gray-subtle: #f7f7f7;
-  --bckfc-gray-inset: #e5e5e5;
   --bckfc-border: #b8c2c8;
   --bckfc-muted: #64737d;
   --bckfc-disabled: #e6ebee;
@@ -46,5 +45,7 @@
   --bckfc-control-height: 3rem;
   --bckfc-control-height-compact: 2.75rem;
   --bckfc-icon-size: 1.25rem;
+  --bckfc-icon-size-highlight: 1.5rem;
+  --bckfc-icon-size-location: 3rem;
   --bckfc-motion-duration: 150ms;
 }

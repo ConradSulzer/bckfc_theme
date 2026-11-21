@@ -1,27 +1,6 @@
 /* The native Avada container owns the full-width surface and site width. */
-.bckfc-categories {
-  padding: var(--bckfc-space-6) var(--bckfc-space-2);
-}
-
-.bckfc-categories > .bckfc-section-heading {
-  margin-bottom: var(--bckfc-space-6);
-}
-
 .bckfc-categories__table {
-  width: 100%;
-  margin: 0;
-  border: 0;
-  border-collapse: collapse;
-  background: var(--bckfc-white);
   color: inherit;
-  font: inherit;
-}
-
-.bckfc-categories__table :is(th, td) {
-  padding: var(--bckfc-space-3) var(--bckfc-space-4);
-  border: 0;
-  text-align: left;
-  vertical-align: top;
 }
 
 .bckfc-categories__table tr {
@@ -48,22 +27,6 @@
 }
 
 @media (max-width: 767px) {
-  /* Keep column headers available to assistive technology in the stacked table. */
-  .bckfc-categories__table thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .bckfc-categories__table,
-  .bckfc-categories__table tbody {
-    display: block;
-  }
-
   .bckfc-categories__table tbody tr {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, auto);
@@ -73,9 +36,6 @@
 
   .bckfc-categories__table :is(th, td) {
     width: auto;
-    min-width: 0;
-    padding: 0;
-    overflow-wrap: anywhere;
   }
 
   .bckfc-categories__prize {
@@ -92,12 +52,6 @@
   .bckfc-categories__description:empty,
   .bckfc-categories__prize:empty {
     display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .bckfc-categories {
-    padding: var(--bckfc-space-8);
   }
 }
 

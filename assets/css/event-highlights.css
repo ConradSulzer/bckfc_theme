@@ -21,7 +21,7 @@
 }
 
 .bckfc-highlight__icon {
-  font-size: 24px;
+  font-size: var(--bckfc-icon-size-highlight);
   line-height: 1;
   margin-bottom: var(--bckfc-space-1);
 }

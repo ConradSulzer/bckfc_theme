@@ -70,12 +70,6 @@
   gap: var(--bckfc-space-2);
 }
 
-.bckfc-header svg {
-  width: var(--bckfc-icon-size);
-  height: var(--bckfc-icon-size);
-  flex-shrink: 0;
-}
-
 .bckfc-header__facts svg {
   margin-top: 2px;
 }

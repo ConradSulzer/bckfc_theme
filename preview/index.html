@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="../assets/css/tokens.css" />
     <link rel="stylesheet" href="../assets/css/foundations.css" />
     <link rel="stylesheet" href="../assets/css/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/tables.css" />
+    <link rel="stylesheet" href="../assets/css/event-size-limits.css" />
     <link rel="stylesheet" href="preview.css" />
   </head>
   <body>
-    <main>
+    <main id="main">
       <section class="bckfc-design bckfc-surface--ink preview-section">
         <p class="bckfc-label bckfc-accent">BCKFC · Design Foundation v2</p>
         <h1 class="bckfc-title">
@@ -44,6 +46,9 @@
         <h2 class="bckfc-section-heading">Type With a Purpose</h2>
         <div class="preview-stack">
           <h3 class="bckfc-item-heading">An Item Heading · 20px Regular</h3>
+          <h3 class="bckfc-compact-heading">Compact Heading · Attendee 1</h3>
+          <p class="bckfc-location-name">Delta Marina · Buras</p>
+          <p class="bckfc-supporting-text">Supporting text · Registration closes December 12 at 8:00 PM.</p>
           <p class="bckfc-lead">
             Lead text gives the important details a little more room.
           </p>
@@ -124,6 +129,18 @@
         <p class="preview-note">
           Try keyboard Tab and hover. These are inert design samples.
         </p>
+      </section>
+      <section class="bckfc-design bckfc-surface--white preview-section">
+        <h2 class="bckfc-section-heading">Notices and Reference Tables</h2>
+        <div class="preview-stack">
+          <div class="bckfc-notice">Regular notice · Important event information.</div>
+          <div class="bckfc-notice bckfc-notice--info">Informational notice · Same size, different color.</div>
+          <div class="bckfc-notice bckfc-notice--info bckfc-notice--compact">You have 2 tickets. <a class="bckfc-link" href="#controls">View Tickets</a></div>
+          <table class="bckfc-size-limits" role="table">
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Species</th><th scope="col" role="columnheader">Minimum</th><th scope="col" role="columnheader">Maximum</th></tr></thead>
+            <tbody role="rowgroup"><tr role="row"><th scope="row" role="rowheader">Example Species</th><td role="cell"><span class="bckfc-size-limits__mobile-label bckfc-label">Minimum</span>Example minimum</td><td role="cell"><span class="bckfc-size-limits__mobile-label bckfc-label">Maximum</span>Example maximum with a longer explanatory note.</td></tr></tbody>
+          </table>
+        </div>
       </section>
     </main>
   </body>
