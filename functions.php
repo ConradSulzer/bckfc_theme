@@ -9,6 +9,9 @@ EventHeader::registerHooks();
 require_once __DIR__ . '/includes/EventHighlights.php';
 EventHighlights::registerHooks();
 
+require_once __DIR__ . '/includes/EventCategories.php';
+EventCategories::registerHooks();
+
 require_once __DIR__ . '/includes/EventTickets.php';
 EventTickets::registerHooks();
 
@@ -25,7 +28,7 @@ function enqueueDesignStyles(): void
 
     $dependency = 'bckfc-fonts';
 
-    foreach (['tokens', 'foundations', 'buttons', 'event-header', 'event-highlights', 'event-tickets'] as $name) {
+    foreach (['tokens', 'foundations', 'buttons', 'event-header', 'event-highlights', 'event-categories', 'event-tickets'] as $name) {
         $path = '/assets/css/' . $name . '.css';
         $handle = 'bckfc-' . $name;
 

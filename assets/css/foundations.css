@@ -62,6 +62,7 @@
 }
 
 .bckfc-design .bckfc-label {
+  font-family: var(--bckfc-font-body);
   font-size: var(--bckfc-text-label);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -168,4 +169,21 @@
 .bckfc-design .bckfc-notice .bckfc-link {
   color: inherit;
   font-weight: 600;
+}
+
+/* Authored component content shares one paragraph and heading rhythm. */
+.bckfc-design .bckfc-prose > * {
+  margin-block: 0 var(--bckfc-space-2);
+}
+
+.bckfc-design .bckfc-prose > :last-child {
+  margin-bottom: 0;
+}
+
+.bckfc-design .bckfc-prose :is(h2, h3, h4, h5, h6) {
+  color: inherit;
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-lead);
+  font-weight: 600;
+  line-height: 1.5;
 }

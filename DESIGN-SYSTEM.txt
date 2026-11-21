@@ -107,3 +107,8 @@ BCKFC Highlights uses native Avada child-item editing, drag ordering, iconpicker
 Place it in a native Avada container with Site Width interior, zero padding and column spacing, using bckfc-design bckfc-surface--orange. The container owns full-width color; the element owns only its grid. Desktop distributes items equally. Below 768px two/four use paired columns; one/three use full-width rows. Dividers and spacing use shared tokens.
 
 Highlights uses Avada's own icon classes, normalized by fusion_font_awesome_name_handler. The Local example consistently uses Font Awesome Solid. Native picker exposes custom icon sets; an upload was not tested. Existing header/ticket SVG assets remain unchanged pending the separately agreed migration review.
+
+Categories (2026-11-20)
+Uses shared section/item/label typography and spacing/color tokens. Native Avada container owns full-width gray surface; component owns white rows and white footer. Below 768px rows stack with name/prize on top and description below. No separate mobile font sizes. bckfc-prose centralizes authored content spacing and modest body-font subheadings for descriptions/footers.
+
+Categories size-limit reference uses shared supporting text, bold species names and spaced dot separators on white. Inline flow wraps naturally at all widths; no separate mobile typography or table layout.
