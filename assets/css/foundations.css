@@ -187,3 +187,12 @@
   font-weight: 600;
   line-height: 1.5;
 }
+
+/* Location names use body type with a shared responsive display role. */
+.bckfc-design .bckfc-location-name {
+  font-family: var(--bckfc-font-body);
+  font-size: var(--bckfc-text-location);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: balance;
+}
