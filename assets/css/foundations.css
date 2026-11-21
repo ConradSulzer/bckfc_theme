@@ -1,5 +1,6 @@
 /* Add bckfc-design to an Avada container to opt its content into this system. */
-.bckfc-design {
+.bckfc-design,
+#main .bckfc-design .bckfc-accordion .panel-body {
   color: var(--bckfc-ink);
   font-family: var(--bckfc-font-body);
   font-size: var(--bckfc-text-body);
@@ -14,11 +15,12 @@
 /* Explicit heading roles, including the adopted native ticket section title.
    Semantic h1–h6 levels remain the author's choice. */
 .bckfc-design :is(.bckfc-title, .bckfc-section-heading, .bckfc-item-heading),
-.bckfc-design
+#main .bckfc-design
   :is(.bckfc-title, .bckfc-section-heading, .bckfc-item-heading)
   > .fusion-title-heading,
 #main #bckfc-tickets .tribe-tickets__tickets-title,
-#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading) {
+#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading),
+#main .bckfc-design .bckfc-accordion .panel-title {
   margin: 0;
   padding: 0;
   color: inherit;
@@ -29,7 +31,7 @@
 }
 
 .bckfc-design .bckfc-title,
-.bckfc-design .bckfc-title > .fusion-title-heading {
+#main .bckfc-design .bckfc-title > .fusion-title-heading {
   font-size: var(--bckfc-text-title);
   line-height: 1.08;
   text-wrap: balance;
@@ -37,15 +39,16 @@
 }
 
 .bckfc-design .bckfc-section-heading,
-.bckfc-design .bckfc-section-heading > .fusion-title-heading,
+#main .bckfc-design .bckfc-section-heading > .fusion-title-heading,
 #main #bckfc-tickets .tribe-tickets__tickets-title {
   font-size: var(--bckfc-text-section);
   line-height: 1.2;
 }
 
 .bckfc-design .bckfc-item-heading,
-.bckfc-design .bckfc-item-heading > .fusion-title-heading,
-#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading) {
+#main .bckfc-design .bckfc-item-heading > .fusion-title-heading,
+#main #bckfc-tickets .tribe-modal__content :is(.tribe-tickets__tickets-item-content-title, .tribe-ticket__tickets-heading),
+#main .bckfc-design .bckfc-accordion .panel-title {
   font-size: var(--bckfc-text-item);
   font-weight: 400;
   line-height: 1.3;
@@ -172,15 +175,18 @@
 }
 
 /* Authored component content shares one paragraph and heading rhythm. */
-.bckfc-design .bckfc-prose > * {
+.bckfc-design .bckfc-prose > *,
+#main .bckfc-design .bckfc-accordion .panel-body > * {
   margin-block: 0 var(--bckfc-space-2);
 }
 
-.bckfc-design .bckfc-prose > :last-child {
+.bckfc-design .bckfc-prose > :last-child,
+#main .bckfc-design .bckfc-accordion .panel-body > :last-child {
   margin-bottom: 0;
 }
 
-.bckfc-design .bckfc-prose :is(h2, h3, h4, h5, h6) {
+.bckfc-design .bckfc-prose :is(h2, h3, h4, h5, h6),
+#main .bckfc-design .bckfc-accordion .panel-body :is(h2, h3, h4, h5, h6) {
   color: inherit;
   font-family: var(--bckfc-font-body);
   font-size: var(--bckfc-text-lead);
@@ -195,4 +201,20 @@
   font-weight: 600;
   line-height: 1.3;
   text-wrap: balance;
+}
+
+/* Native authored sections use the same interior rhythm as our components.
+   Avada retains ownership of site width and column layout. */
+.fusion-fullwidth.bckfc-section {
+  padding: var(--bckfc-space-6) var(--bckfc-space-2);
+}
+
+.bckfc-section .bckfc-section-heading {
+  margin-bottom: var(--bckfc-space-6);
+}
+
+@media (min-width: 768px) {
+  .fusion-fullwidth.bckfc-section {
+    padding-block: var(--bckfc-space-8);
+  }
 }

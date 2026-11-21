@@ -1,0 +1,41 @@
+/* Opt-in adapter for Avada Toggles. Native markup and interaction stay intact. */
+#main .bckfc-accordion {
+  margin: 0;
+  --awb-icon-color: var(--bckfc-blue);
+  --awb-toggle-hover-accent-color: var(--bckfc-blue);
+  --awb-toggle-active-accent-color: var(--bckfc-blue);
+}
+
+#main .bckfc-accordion .fusion-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--bckfc-white);
+}
+
+#main .bckfc-accordion .fusion-panel + .fusion-panel {
+  border-top: 1px solid var(--bckfc-gray);
+}
+
+#main .bckfc-accordion .panel-title > a {
+  --awb-toggle-active-accent-color: var(--bckfc-blue);
+  align-items: center;
+  min-height: var(--bckfc-control-height);
+  padding: var(--bckfc-space-3) var(--bckfc-space-4);
+  border: 0;
+  color: var(--bckfc-ink);
+  text-decoration: none;
+}
+
+#main .bckfc-accordion .panel-title > a:is(:hover, :focus-visible) {
+  color: var(--bckfc-blue);
+}
+
+#main .bckfc-accordion .panel-title > a:focus-visible {
+  outline: 2px solid var(--bckfc-blue);
+  outline-offset: -2px;
+}
+
+#main .bckfc-accordion .panel-body {
+  padding: 0 var(--bckfc-space-4) var(--bckfc-space-4);
+}
